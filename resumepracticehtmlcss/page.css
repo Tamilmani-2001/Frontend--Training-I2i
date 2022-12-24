@@ -1,0 +1,142 @@
+.container .left {
+    display: inline-block;
+    margin-top: 4%;
+    margin-left: 2%;
+    height: 170%;
+    width: 25%;
+}
+.container .left .figure {
+    display: inline-block;
+    margin-left: 11%;
+    height: 25%;
+    width: 85%;
+}
+.container .left .figure img {
+    display: inline-block;
+    border-radius: 50%;
+    height: 58%;
+    width: 65%;
+}
+.container .left .figure h1 {
+    text-align: center;
+    height: 20%;
+    width: 70%;
+}
+.container .left .figure h2 {
+    text-align: center;
+    font-size: 115%;
+    width: 70%;
+    height: 8%;
+    color: #546495;
+}
+.container .left ul {
+    margin-top: 50pt;
+    list-style-type: none;
+    height: 190pt;
+    width: 100%;
+    padding-left: 0%;
+}
+.container .left ul li {
+    padding-left: 10pt;
+    padding-bottom: 15pt;
+    padding-top: 15pt;
+}
+.container .left ul li i {
+    width: 16pt;
+    height: 16px;
+}
+.container .left .line{
+    border-bottom: 1pt solid #7885ad;
+}                               
+.container .left .resume {
+    display: inline-block;
+    margin-left: 2pt;
+    margin-top: 50pt;
+    width: 158pt;
+    height: 38pt;
+    border-radius: 10pt;
+    background-color: #377cfe;
+    color: white;
+}
+.container .right {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 4%;
+    height: 150%;
+    width: 68%;
+    margin-top: 1%;
+}
+.container .right .intro {
+    display: inline-block;
+    width: 100%;
+    height: 26%;
+}
+.container .right .intro p {
+    padding-top: 30pt;
+    font-size: 15pt;
+    color: #61719f;
+}
+.container .right .totalworkexp {
+    display: inline-block;
+    margin: 60pt 60pt 0pt 0pt;
+    height: 50%;
+    width: 100%;
+}
+.container .right .education {
+    display: inline-block;
+    margin: 60pt 60pt 0pt 0pt;
+    height: 50%;
+    width: 100%;
+}
+.innerworkexp {
+    display: inline-block;
+    border-bottom: 1pt solid #7885ad;
+    margin-top: 2%;
+    width: 100%;
+    height: 25%;
+}
+.innerworkexpfont {
+    display: inline-block;
+    width: 48%;
+    height: 20pt;
+    font-size: x-large;
+}
+.innerworkexp .rightspacing {
+    width: 14%;
+    display: inline-block;
+}
+.innerworkexp .fulltime {
+    display: inline-block;
+    width: 13%;
+    height: 17%;
+    border-radius: 40px;
+    background-color: #c1e6d3;
+    text-align: center;
+    margin-left: 35%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding-top: 1%;
+}
+.innerworkexp .role {
+    display: inline-block;
+    height: 14%;
+    width: 32%;
+
+}
+.right .totalworkexp .innerworkexp .date {
+    display: inline-block;
+    width: 45%;
+}
+.right .education .innerworkexp .date {
+    display: inline-block;
+    width: 65%;
+}
+.date {
+    text-align-last: end;
+}
+h1 {
+    color: #344781;
+}
+span {
+    color: #536598;
+}

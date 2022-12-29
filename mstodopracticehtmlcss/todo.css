@@ -66,27 +66,32 @@ html body {
 }
 
 .left-side {
+    display: inline-block;
     width: 20%;
     height: 705px;
 }
 
+.left-side .bar-icon {
+    width: 100%;
+    height: 50px;
+}
+
 .left-side .bar-icon i {
-    transform: translate(140%,100%);
-    font-size: larger;
+    transform: translate(160%,100%);
+    font-size: 110%;
 }
 
 .left-side .icon-chamber {
     width: 100%;
     height: 300px;
-    margin-top: 10%;
 }
 
 .left-side {
-    border-right: 1px solid black;
+    border-right: 1px solid rgba(0,0,0,0.1);
 }
 
 .left-side .icon-chamber {
-    border-bottom: 1px solid black;
+    border-bottom:  1px solid rgba(0,0,0,0.1);
 }
 
 .left-side .icon-chamber .icon {
@@ -99,23 +104,195 @@ html body {
     width: 5%;
 }
 
-.left-side .icon-chamber .icon:hover {
-    background-color: rgb(194, 189, 189);
-}
-
 .icon-chamber-text {
     display: inline-block;
-    font-size: 80%;
+    font-size: 85%;
     margin-left: 15%;
     transform: translateY(85%);
 }
 
-.left-side .new-list {
-    width: 100%;
-    height: 45px;
-    color: blueviolet;
-}
-
 .left-side .list-container {
-
+    width: 100%;
+    height: 305px;
 }
+
+.left-side .list-container .new-list {
+    display: inline-block;
+    width: 77%;
+    height: 45px;
+}
+
+.left-side .list-container .create-group {
+    display: inline-block;
+    width: 21%;
+    height: 45px;
+}
+
+.left-side .list-container .new-list .icon {
+    display: inline-block;
+    width: 25%;
+    height: 45px;
+}
+
+.left-side .list-container .new-list .icon, .left-side .list-container .create-group {
+    vertical-align: top;
+}
+
+.left-side .list-container .new-list .icon i {
+    transform: translate(200%,80%);
+}
+
+
+.left-side .list-container .new-list input {
+    display: inline-block;
+    width: 71%;
+    height: 45px;
+    border: 0px;
+    background: transparent;
+}
+
+.left-side .list-container .new-list .icon i, .left-side .list-container .create-group i  {
+    color: #2564cf;
+}
+
+.left-side .bottom-container {
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+}
+
+.left-side .bottom-container .icon {
+    display: inline-block;
+    width: 18%;
+    height: 45px;
+}
+
+.left-side .bottom-container .people-icon {
+    display: inline-block;
+    width: 22%;
+    height: 45px;
+}
+
+.left-side .list-container .create-group i,  .left-side .bottom-container .icon i {
+    transform: translate(135%,80%);
+}
+
+.left-side .bottom-container .people-icon i {
+    transform: translate(220%,80%);
+}
+
+.left-side .icon-chamber .icon:hover, .left-side .list-container .new-list:hover, .left-side .list-container .create-group:hover, 
+.left-side .bottom-container .icon:hover, .left-side .bottom-container .people-icon:hover {
+    background-color: rgb(221, 218, 218);
+}
+
+.right-side {
+    display: inline-block;
+    vertical-align: top;
+    width: 79%;
+    height: 703px;
+}
+
+.right-side .home-icon {
+    display: inline-block;
+    width: 3%;
+    height: 25px;
+    margin-left: 2%;
+}
+
+.right-side .tasks {
+    display: inline-block;
+    vertical-align: top;
+    width: 6%;
+    height: 25px;
+}
+
+.right-side .ellipsis-icon {
+    display: inline-block;
+    width: 3%;
+    height: 25px;
+    border-radius: 5px;
+}
+
+.right-side .ellipsis-icon i {
+    transform: translate(50%, 7%);
+}
+
+.right-side .sort-icon {
+    display: inline-block;
+    vertical-align: top;
+    width: 8%;
+    height: 25px;
+    border-radius: 5px;
+    margin-left: 75%;
+}
+
+.right-side .sort-icon i {
+    padding-left: 25%;
+    padding-top: 4%;
+}
+
+.right-side .sort-icon span {
+    padding-left: 5%;
+}
+
+.right-side .ellipsis-icon:hover, .right-side .sort-icon:hover {
+    background-color: rgb(221, 218, 218);
+}
+
+.right-side .home-icon, .right-side .tasks, .right-side .ellipsis-icon, .right-side .sort-icon {
+    margin-top: 2%;
+}
+
+.right-side .home-icon i, .right-side .tasks, .right-side .sort-icon  {
+    color: #2564cf;
+}
+
+.right-side .home-icon i, .right-side .tasks, .right-side .ellipsis-icon i  {
+    font-size: x-large;
+}
+
+.right-side .task-bar {
+    width: 100%;
+    height: 640px;
+    margin-top: 15px;
+}
+
+.right-side .task-bar .icon {
+    width: 97%;
+    margin-left: 1%;
+    margin-top: 1%;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.1)
+}
+
+.right-side .task-bar .icon:hover {
+    background-color: rgb(221, 218, 218);
+}
+
+.right-side .task-bar .icon input {
+    display: inline-block;
+    width: 71%;
+    height: 45px;
+    border: 0px;
+    background: transparent;
+}
+
+.right-side .task-bar .icon i {
+    color: rgb(18, 18, 216);
+}
+
+.right-side .task-bar .icon i, .right-side .task-bar .icon input {
+    padding-left: 1%;
+}
+
+.left-side .list-container .new-list input:focus, .right-side .task-bar input:focus {
+    outline: none;
+}
+
+.left-side .list-container .new-list input:placeholder-shown, 
+.right-side .task-bar input:placeholder-shown {
+    color: #062458;
+}
+
+

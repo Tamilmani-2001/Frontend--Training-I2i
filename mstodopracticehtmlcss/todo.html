@@ -22,38 +22,38 @@
                 <div class="bar-icon">
                     <i class="fa fa-bars"></i>
                 </div>
-                <div class="icon-chamber">
-                    <div class="icon">
+                <li id="icon-chamber-list" class="icon-chamber">
+                    <ul class="icon">
                         <i class="fa fa-sun-o"></i>
                         <span class="icon-chamber-text">My Day</span>
-                    </div>
-                    <div class="icon">
+                    </ul>
+                    <ul class="icon">
                         <i class="fa fa-star-o"></i>
                         <span class="icon-chamber-text">Important</span>                        
-                    </div>
-                    <div class="icon">
+                    </ul>
+                    <ul class="icon">
                         <i class="fa fa-calendar"></i>
                         <span class="icon-chamber-text">Planned</span>
-                    </div>
-                    <div class="icon">
+                    </ul>
+                    <ul class="icon">
                         <i class="fa fa-user-o"></i>
                         <span class="icon-chamber-text">Assigned to me</span>
-                    </div>
-                    <div class="icon">
+                    </ul>
+                    <ul class="icon">
                         <i class="fa fa-flag-o"></i>
                         <span class="icon-chamber-text">Flagged email</span>
-                    </div>
-                    <div class="icon">
+                    </ul>
+                    <ul class="icon">
                         <i class="fa fa-home"></i>
                         <span class="icon-chamber-text">Tasks</span>
-                    </div>
-                </div>
+                    </ul>
+                </li>
                 <div class="list-container">
-                    <div class="new-list">
+                    <div id="list-addition" class="new-list">
                         <span class="icon">
                             <i class="fa fa-plus"></i>
                         </span>
-                        <input type="text" placeholder="New List"></input>
+                        <input type="text" placeholder="New List" onkeydown="search(this)"></input>
                     </div>
                     <div id="group" class="create-group">
                         <i class="fa fa-users"></i>

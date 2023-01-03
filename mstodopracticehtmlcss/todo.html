@@ -1,108 +1,118 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="todo.css"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="todo.js" type="text/javascript"></script>
-    </head>
-    <body>
-        <div class="container">
-            <div class="top-bar">
-                <span class="app-list">
-                    <i class="fa fa-th"></i>
-                </span>
-                <span class="todo-link">
-                    To Do
-                </span>
-                <span class="search">
-                    <i class="fa fa-search"></i>
-                </span>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="todo.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <span class="app-list">
+                <i class="fa fa-th"></i>
+            </span>
+            <span class="todo-link">
+                To Do
+            </span>
+            <span class="search">
+                <i class="fa fa-search"></i>
+            </span>
+        </div>
+        <div class="left-side">
+            <div class="bar-icon">
+                <i class="fa fa-bars"></i>
             </div>
-            <div class="left-side">
-                <div class="bar-icon">
-                    <i class="fa fa-bars"></i>
+            <div class="tasks">
+                <div class="icon-chamber-list">
+                    <div id="icon-chamber" class="icon-chamber">
+                        <div id="day" class="icon">
+                            <i class="fa fa-sun-o"></i>
+                            <span class="icon-chamber-text">My Day</span>
+                        </div>
+                        <div id="important" class="icon">
+                            <i class="fa fa-star-o"></i>
+                            <span class="icon-chamber-text">Important</span>
+                        </div>
+                        <div id="plan" class="icon">
+                            <i class="fa fa-calendar"></i>
+                            <span class="icon-chamber-text">Planned</span>
+                        </div>
+                        <div id="assign" class="icon">
+                            <i class="fa fa-user-o"></i>
+                            <span class="icon-chamber-text">Assigned to me</span>
+                        </div>
+                        <div id="flagged-email" class="icon">
+                            <i class="fa fa-flag-o"></i>
+                            <span class="icon-chamber-text">Flagged email</span>
+                        </div>
+                        <div id="day-tasks" class="icon">
+                            <i class="fa fa-home"></i>
+                            <span class="icon-chamber-text">Tasks</span>
+                        </div>
+                    </div>
+                    <ul id="list-and-group" class="list-and-group">
+                    </ul>
                 </div>
-                <li id="icon-chamber-list" class="icon-chamber">
-                    <ul class="icon">
-                        <i class="fa fa-sun-o"></i>
-                        <span class="icon-chamber-text">My Day</span>
-                    </ul>
-                    <ul class="icon">
-                        <i class="fa fa-star-o"></i>
-                        <span class="icon-chamber-text">Important</span>                        
-                    </ul>
-                    <ul class="icon">
-                        <i class="fa fa-calendar"></i>
-                        <span class="icon-chamber-text">Planned</span>
-                    </ul>
-                    <ul class="icon">
-                        <i class="fa fa-user-o"></i>
-                        <span class="icon-chamber-text">Assigned to me</span>
-                    </ul>
-                    <ul class="icon">
-                        <i class="fa fa-flag-o"></i>
-                        <span class="icon-chamber-text">Flagged email</span>
-                    </ul>
-                    <ul class="icon">
-                        <i class="fa fa-home"></i>
-                        <span class="icon-chamber-text">Tasks</span>
-                    </ul>
-                </li>
                 <div class="list-container">
-                    <div id="list-addition" class="new-list">
+                    <div class="new-list">
                         <span class="icon">
                             <i class="fa fa-plus"></i>
                         </span>
-                        <input type="text" placeholder="New List" onkeydown="search(this)"></input>
+                        <input type="text" id="list-addition" placeholder="New List"></input>
                     </div>
-                    <div id="group" class="create-group">
+                    <div id="group-addition" class="create-group">
                         <i class="fa fa-users"></i>
                         <div class="drop-down-content">
                             Create group
                         </div>
                     </div>
                 </div>
-                <div class="bottom-container">
-                    <span class="icon">
-                        <i class="fa fa-envelope-o"></i>
-                    </span>
-                    <span class="icon">
-                        <i class='fa fa-calendar'></i>
-                    </span>
-                    <span class="people-icon">
-                        <i class="fa fa-user"></i>
-                    </span>
-                    <span class="icon">
-                        <i class='fa fa-paperclip'></i>
-                    </span>
-                    <span class="icon">
-                        <i class='fa fa-check'></i>
-                    </span>
-                </div>
             </div>
-            <div class="right-side">
-                <div>
-                    <span class="home-icon">
-                        <i class="fa fa-home"></i>
-                    </span>
-                    <span class="tasks">
-                        Tasks
-                    </span>
-                    <span class="ellipsis-icon">
-                        <i class="fa fa-ellipsis-h"></i>
-                    </span>
-                    <span class="sort-icon">
-                        <i class="fa fa-sort"></i>
-                        <span>sort</span>
-                    </span>
-                </div>
-                <div class="task-bar">
-                    <div class="icon">
-                        <i class="fa fa-plus"></i>
-                        <input type="text" placeholder="Add a task"></input>
-                    </div>
-                </div>
+            <div class="bottom-container">
+                <span class="icon">
+                    <i class="fa fa-envelope-o"></i>
+                </span>
+                <span class="icon">
+                    <i class='fa fa-calendar'></i>
+                </span>
+                <span class="people-icon">
+                    <i class="fa fa-user"></i>
+                </span>
+                <span class="icon">
+                    <i class='fa fa-paperclip'></i>
+                </span>
+                <span class="icon">
+                    <i class='fa fa-check'></i>
+                </span>
             </div>
         </div>
-    </body>
+        <div class="right-side">
+            <div>
+                <span class="home-icon">
+                    <i class="fa fa-home"></i>
+                </span>
+                <span class="tasks">
+                    Tasks
+                </span>
+                <span class="ellipsis-icon">
+                    <i class="fa fa-ellipsis-h"></i>
+                </span>
+                <span class="sort-icon">
+                    <i class="fa fa-sort"></i>
+                    <span>sort</span>
+                </span>
+            </div>
+            <div class="task-bar">
+                <div class="icon">
+                    <i class="fa fa-plus"></i>
+                    <input type="text" id="create-task" placeholder="Add a task"></input>
+                </div>
+                <ul id="task-list" class="task-list"></ul>
+            </div>
+        </div>
+    </div>
+    <script src="todo.js" type="text/javascript"></script>
+</body>
+
 </html>

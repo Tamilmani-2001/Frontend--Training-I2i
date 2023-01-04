@@ -1,27 +1,8 @@
 (function () {
 
-
-    const categoryId = 0;
-
-    const category = [
-        {id:'day', icon:'<i class="fa fa-sun-o"></i>', text:'My Day'},
-        {id:'important', icon:'<i class="fa fa-star-o"></i>', text:'Important'},
-        {id:'plan', icon:'<i class="fa fa-calendar"></i>', text:'Planned'},
-        {id:'assign', icon:'<i class="fa fa-user-o"></i>', text:'Assigned to me'},
-        {id:'flagged-email', icon:'<i class="fa fa-flag-o"></i>', text:'Flagged email'},
-        {id:'day-tasks', icon:'<i class="fa fa-home"></i>', text:'Tasks'}
-    ]
-
-    // function setUpCategory() {
-    //     const category = [
-    //         {id:'day', },
-    //         {id:'plan', },
-    //         {id:'assign', },
-    //         {id:'important', },
-    //         {id:'flagged-email', },
-    //         {id:'day-tasks', }
-    //     ]
-    // }
+    const category = [];
+    const selectedCategory = [];
+    const tasks = [];
 
     function createElement(element) {
         return document.createElement(element);
@@ -38,12 +19,119 @@
     function getElementByClassName(className) {
         return document.getElementsByClassName(className);
     }
-    function init() {
-        // setUpHelp();
-        createNewList();
-        createNewTask();
+
+    function querySelectorAll(value) {
+        return document.querySelectorAll(value);
     }
-    init();
+
+    function helpCategoryList() {
+
+        let categoryList = [];
+
+        function getCategoryByGivenId(value) {
+            let categoryDetail;
+            for (let i = 0; i < categoryList.length; i++) {
+                if (value === categoryList[i].categoryName) {
+                    categoryDetail = categoryList[i].categoryName;
+                }
+            }
+            return categoryDetail;
+        }
+
+        return {
+            pushCategory(value) {
+                categoryList.push(value);
+                console.log(categoryList);
+            },
+
+            getCategory() {
+                return categoryList;
+            },
+
+            getCategoryById(value) {
+                return getCategoryByGivenId(value);
+            }
+        }
+    }
+
+    function makeCounter() {
+        let privateCounter = 0;
+        function changeBy(val) {
+            privateCounter += val;
+        }
+        return {
+            increment() {
+                changeBy(1);
+            },
+
+            getValue() {
+                return privateCounter;
+            },
+
+            setValue(value) {
+                privateCounter = value;
+            }
+        };
+    };
+
+    const categoryId = makeCounter();
+    const taskId = makeCounter();
+    const untitledListCounter = makeCounter();
+    const categoryHelper = helpCategoryList();
+
+    function createCategoryList() {
+        let category = [
+            { id: 'day', icon: "fa fa-sun-o", text: 'My Day' },
+            { id: 'important', icon: "fa fa-star-o", text: 'Important' },
+            { id: 'plan', icon: "fa fa-calendar", text: 'Planned' },
+            { id: 'assign', icon: "fa fa-user-o", text: 'Assigned to me' },
+            { id: 'flagged-email', icon: "fa fa-flag-o", text: 'Flagged email' },
+            { id: 'day-tasks', icon: "fa fa-home", text: 'Tasks' }
+        ]
+        return category;
+    }
+
+    function createCategory() {
+        let iconChamber = getElementById("icon-chamber");
+        iconChamber.innerHTML = "";
+        let newCategory = createCategoryList();
+        for (let i = 0; i < newCategory.length; i++) {
+            const list = createElement("li");
+            const icon = createElement("i");
+            const span = createElement("span");
+            list.id = newCategory[i].id;
+            list.className = "icon";
+            icon.className = newCategory[i].icon;
+            span.className = "icon-chamber-text";
+            span.innerText = newCategory[i].text;
+            list.appendChild(icon);
+            list.appendChild(span);
+            iconChamber.appendChild(list);
+        }
+    }
+
+    function setCategoryList(value) {
+        categoryId.increment();
+        const category = {
+            categoryId: categoryId.getValue(),
+            categoryName: value,
+            categoryTask: []
+        }
+        categoryHelper.pushCategory(category);
+        return categoryId.getValue();
+    }
+
+    function helpListName(value) {
+        if ("" === value) {
+            value = "Untitled List";
+        }
+        let newValue = categoryHelper.getCategoryById(value);
+        if (undefined !== newValue) {
+            untitledListCounter.increment();
+            value += untitledListCounter.getValue();
+        }
+        return value;
+    }
 
     function createNewList() {
         let listDetails = getElementById("list-addition");
@@ -55,13 +143,27 @@
                 list.className = "icon";
                 icon.className = "fa fa-bars";
                 span.className = "icon-chamber-text";
-                span.innerText = event.target.value;
+                const value = helpListName(event.target.value);
+                span.innerText = value;
+                list.dataset.categoryId = setCategoryList(value);
                 list.appendChild(icon);
                 list.appendChild(span);
+                createCategory();
                 getElementById("list-and-group").appendChild(list);
                 listDetails.value = "";
+                addEventToList();
             }
         });
+    }
+
+    function addEventToList() {
+        let categoryList = getElementById("list-and-group").querySelectorAll("[data-category-id]");
+        for (let i = 0; i < categoryList.length; i++) {
+            let category = categoryList[i].onclick = function () {
+                
+            };
+            //let value = category.attributes.getNamedItem("data-category-id").value;
+        }
     }
 
     function createNewTask() {
@@ -83,15 +185,16 @@
         });
     }
 
-    // function create() {
-    //     var iconChamberList = document.getElementById("icon-chamber-list");
-    //     function getIconChamberList() {
-    //         return iconChamberList;
-    //     }
-    //     function setIconChamberList(listItem) {
-    //         iconChamberList = listItem;
-    //     }
-    // }
+    function init() {
+        addEventToList();
+        makeCounter();
+        createCategoryList();
+        createCategory();
+        createNewList();
+        createNewTask();
+        helpCategoryList();
+    }
+    init();
 
 })();
 

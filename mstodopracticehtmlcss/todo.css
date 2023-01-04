@@ -369,6 +369,11 @@ html body {
     outline: none;
 }
 
+.left-side .tasks .icon-chamber-list ul,
+.right-side .task-bar ul {
+    list-style: none;
+}
+
 .left-side .tasks .list-container .new-list input:placeholder-shown,
 .right-side .task-bar input:placeholder-shown {
     color: #062458;

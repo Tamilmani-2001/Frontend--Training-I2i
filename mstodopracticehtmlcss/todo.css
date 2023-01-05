@@ -249,7 +249,7 @@ html body {
 .right-side .tasks {
     display: inline-block;
     vertical-align: top;
-    width: 6%;
+    min-width: 6%;
     height: 25px;
 }
 
@@ -270,7 +270,7 @@ html body {
     width: 8%;
     height: 25px;
     border-radius: 5px;
-    margin-left: 75%;
+    margin-left: 65%;
 }
 
 .right-side .sort-icon i {

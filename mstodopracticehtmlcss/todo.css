@@ -21,7 +21,7 @@ html body {
 .top-bar .app-list {
     display: inline-block;
     width: 3%;
-    height: 47px;
+    height: 100%;
     text-align: center;
 }
 
@@ -46,7 +46,7 @@ html body {
 .top-bar .search {
     display: inline-block;
     width: 28%;
-    height: 30px;
+    height: 65%;
     transform: translate(80%, 24%);
     background: white;
 }
@@ -74,7 +74,7 @@ html body {
 
 .left-side .bar-icon {
     width: 100%;
-    height: 50px;
+    height: 7%;
 }
 
 .left-side .bar-icon i {
@@ -84,12 +84,12 @@ html body {
 
 .left-side .tasks {
     width: 100%;
-    height: 603px;
+    height: 85%;
 }
 
 .icon-chamber-list {
     overflow-y: scroll;
-    max-height: 560px;
+    max-height: 93%;
 }
 
 .left-side .tasks .icon-chamber-list .icon-chamber {
@@ -103,12 +103,12 @@ html body {
 
 .left-side .tasks .icon-chamber-list .icon-chamber .icon {
     width: 100%;
-    height: 50px;
+    height: 16.7%;
 }
 
 .left-side .tasks .list-container {
     width: 100%;
-    height: 46px;
+    height: 9%;
 }
 
 .left-side .tasks .list-container .new-list {
@@ -120,13 +120,13 @@ html body {
 .left-side .tasks .list-container .create-group {
     display: inline-block;
     width: 22%;
-    height: 45px;
+    height: 100%;
 }
 
 .left-side .tasks .list-container .new-list .icon {
     display: inline-block;
     width: 25%;
-    height: 45px;
+    height: 100%;
 }
 
 .left-side .tasks .list-container .new-list .icon,
@@ -138,11 +138,10 @@ html body {
     transform: translate(200%, 80%);
 }
 
-
 .left-side .tasks .list-container .new-list input {
     display: inline-block;
     width: 71%;
-    height: 45px;
+    height: 100%;
     border: 0px;
     background: transparent;
 }
@@ -155,19 +154,19 @@ html body {
 .left-side .bottom-container {
     display: inline-block;
     width: 100%;
-    height: 50px;
+    height: 8%;
 }
 
 .left-side .bottom-container .icon {
     display: inline-block;
     width: 18%;
-    height: 45px;
+    height: 100%;
 }
 
 .left-side .bottom-container .people-icon {
     display: inline-block;
     width: 22%;
-    height: 45px;
+    height: 100%;
 }
 
 .left-side .tasks .list-container .create-group i,
@@ -181,7 +180,8 @@ html body {
 
 .left-side .tasks .list-container .new-list:hover,
 .left-side .tasks .list-container .create-group:hover,
-.icon:hover {
+.left-side .icon:hover,
+.left-side .bottom-container .people-icon:hover {
     background-color: rgb(221, 218, 218);
 }
 
@@ -239,24 +239,36 @@ html body {
     height: 703px;
 }
 
-.right-side .home-icon {
+.right-side .category-tasks {
+    display: inline-block;
+    width: 100%;
+    height: 8%;
+}
+
+.right-side .category-tasks .home-icon {
     display: inline-block;
     width: 3%;
-    height: 25px;
+    height: 50%;
     margin-left: 2%;
 }
 
-.right-side .tasks {
+.right-side .category-tasks .tasks {
     display: inline-block;
     vertical-align: top;
     min-width: 6%;
-    height: 25px;
+    height: 50%;
 }
 
-.right-side .ellipsis-icon {
+.right-side .current-date {
+    margin-left: 2%;
+    margin-top: 1%;
+    font-size: small;
+}
+
+.right-side .category-tasks .ellipsis-icon {
     display: inline-block;
     width: 3%;
-    height: 25px;
+    height: 50%;
     border-radius: 5px;
 }
 
@@ -268,7 +280,7 @@ html body {
     display: inline-block;
     vertical-align: top;
     width: 8%;
-    height: 25px;
+    height: 50%;
     border-radius: 5px;
     margin-left: 65%;
 }
@@ -280,11 +292,6 @@ html body {
 
 .right-side .sort-icon span {
     padding-left: 5%;
-}
-
-.right-side .ellipsis-icon:hover,
-.right-side .sort-icon:hover {
-    background-color: rgb(221, 218, 218);
 }
 
 .right-side .home-icon,
@@ -308,8 +315,7 @@ html body {
 
 .right-side .task-bar {
     width: 100%;
-    height: 640px;
-    margin-top: 15px;
+    height: 85%;
 }
 
 .right-side .task-bar .icon {
@@ -320,13 +326,9 @@ html body {
     border: 1px solid rgba(0, 0, 0, 0.1)
 }
 
-.right-side .task-bar .icon:hover {
-    background-color: rgb(221, 218, 218);
-}
-
 .right-side .task-bar .icon input {
     display: inline-block;
-    width: 71%;
+    width: 88%;
     height: 45px;
     border: 0px;
     background: transparent;
@@ -335,17 +337,38 @@ html body {
 .right-side .task-bar .task-list {
     display: inline-block;
     width: 100%;
-    height: 585px;
+    height: 93%;
     overflow-y: scroll;
 }
 
 .right-side .task-bar .task-list li {
     width: 97%;
-    height: 45px;
+    height: 8%;
     margin-left: 1%;
     margin-top: 1%;
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.right-side .task-bar .icon .drop-down-content {
+    display: none;
+    width: 100%;
+    height: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.right-side .task-bar .icon .drop-down-content span {
+    display: inline-block;
+    width: 3%;
+    height: 100%;
+}
+
+.right-side .task-bar .icon .drop-down-content span i {
+    transform: translate(65%, 40%);
+}
+
+.right-side .task-bar .icon input:focus+.drop-down-content {
+    display: inline-block;
 }
 
 .right-side .task-bar .task-list li i,
@@ -355,7 +378,8 @@ html body {
 }
 
 .right-side .task-bar .icon i,
-.right-side .task-bar .task-list li {
+.right-side .task-bar .task-list li,
+.right-side .task-bar .drop-down-content span i {
     color: rgb(18, 18, 216);
 }
 
@@ -379,9 +403,15 @@ html body {
     color: #062458;
 }
 
+.right-side .ellipsis-icon:hover,
+.right-side .sort-icon:hover,
+.right-side .task-bar .icon:hover {
+    background-color: rgb(221, 218, 218);
+}
+
 .top-bar .app-list,
 .top-bar .todo-link,
 .left-side .tasks .icon-chamber-list .icon-chamber .icon,
-.right-side .task-bar .icon {
+.right-side .task-bar .icon i {
     cursor: pointer;
 }

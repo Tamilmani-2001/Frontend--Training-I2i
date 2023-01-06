@@ -1,13 +1,15 @@
 (function () {
 
     function init() {
+        renderDate();
+        setDateInHtml();
+        renderMyDayTasks();
         makeCounter();
         createCategoryList();
         createCategory();
         createNewList();
         createNewTask();
         helpCategoryList();
-        addTaskClickEvent();
     }
 
     const categoryId = makeCounter();
@@ -27,6 +29,12 @@
 
     function getElementById(id) {
         return document.getElementById(id);
+    }
+
+    function createElementWithClassName(value, className) {
+        let element = document.createElement(value);
+        element.className = className;
+        return element;
     }
 
     function helpCategoryList() {
@@ -183,6 +191,28 @@
 
     }
 
+    function renderDate() {
+        const currentDate = new Date();
+        return currentDate.toDateString();
+    }
+
+    function setDateInHtml() {
+        getElementById("current-date").innerText = renderDate();
+    }
+
+    function renderMyDayTasks() {
+        let defaultCategory = defaultCategoryHelper.getCategoryById("day");
+        let childNodesList = getElementById("category-tasks").childNodes;
+        let taskDetails = taskHelper.getTaskByCategoryId("day");    
+        getElementById("list-tasks").dataset.categoryId = "day";
+        setContentInCategotyTasks(childNodesList, defaultCategory);
+        for (let i = 0; i < taskDetails.length; i++) {
+            if (renderDate() == taskDetails[i].taskDate) {
+                renderTask(taskDetails[i]);
+            }
+        }
+    }
+
     function createCategory() {
         let iconChamber = getElementById("icon-chamber");
         let newCategory = defaultCategoryHelper.getCategory();
@@ -215,18 +245,22 @@
             let tasks = taskHelper.getTaskByCategoryId(value);
             let childNodesList = getElementById("category-tasks").childNodes;
             getElementById("list-tasks").dataset.categoryId = value;
-            for (let i = 0; i < childNodesList.length; i++) {
-                if (childNodesList[i].id == "home-icon") {
-                    childNodesList[i].innerHTML = "";
-                    let icon = createElement('i');
-                    icon.className = defaultCategory.icon;
-                    childNodesList[i].appendChild(icon);
-                }
-                if (childNodesList[i].id == "home-text") {
-                    childNodesList[i].innerText = defaultCategory.text;
-                }
-            }
+            setContentInCategotyTasks(childNodesList, defaultCategory);
             renderTaskByCategory(tasks);
+        }
+    }
+
+    function setContentInCategotyTasks(childNodesList, defaultCategory) {
+        for (let i = 0; i < childNodesList.length; i++) {
+            if (childNodesList[i].id == "home-icon") {
+                childNodesList[i].innerHTML = "";
+                let icon = createElement('i');
+                icon.className = defaultCategory.icon;
+                childNodesList[i].appendChild(icon);
+            }
+            if (childNodesList[i].id == "home-text") {
+                childNodesList[i].innerText = defaultCategory.text;
+            }
         }
     }
 
@@ -287,18 +321,16 @@
             let tasks = taskHelper.getTaskByCategoryId(value);
             let childNodesList = getElementById("category-tasks").childNodes;
             getElementById("list-tasks").dataset.categoryId = value;
-            for (let i = 0; i < childNodesList.length; i++) {
-                if (childNodesList[i].id == "home-icon") {
-                    childNodesList[i].innerHTML = "";
-                    let icon = createElement('i');
-                    icon.className = "fa fa-bars";
-                    childNodesList[i].appendChild(icon);
-                }
-                if (childNodesList[i].id == "home-text") {
-                    childNodesList[i].innerText = category.categoryName;
-                }
-            }
+            setContentInCategotyTasks(childNodesList, categoryToDefaultCategoryObject(category));
             renderTaskByCategory(tasks);
+        }
+    }
+
+    function categoryToDefaultCategoryObject(category) {
+        return {
+            categoryId:category.categoryId ,
+            text: category.categoryName,
+            icon: "fa fa-bars"
         }
     }
 
@@ -327,25 +359,11 @@
         let listDetails = getElementById("create-task");
         listDetails.addEventListener("keypress", function createTask(event) {
             if ('Enter' === event.key) {
-
                 let taskDetail = createTaskObject(event.target.value);
                 let categoryId = getElementById("list-tasks").dataset.categoryId;
-                if (undefined !== categoryId) {
-                    taskDetail.categoryId = categoryId;
-                }
-                addTaskInTaslList(taskDetail);
+                taskDetail.categoryId = categoryId;
+                addTaskInTaskList(taskDetail);
                 renderTask(taskDetail);
-                // const list = createElement("li");
-                // const icon = createElement("i");
-                // const span = createElement("span");
-                // list.className = "icon";
-                // icon.className = "fa fa-circle-o";
-                // span.className = "task-list-text";
-                // span.innerText = taskDetail.taskName;
-                // list.appendChild(icon);
-                // list.appendChild(span);
-                // list.dataset.taskId = taskDetail.taskId;
-                // getElementById("task-list").prepend(list);
                 listDetails.value = "";
             }
         });
@@ -356,16 +374,13 @@
         return {
             taskId: taskId.getValue(),
             taskName: name,
-            categoryId: null
+            categoryId: null,
+            taskDate: renderDate()
         };
     }
 
-    function addTaskInTaslList(taskDetail) {
+    function addTaskInTaskList(taskDetail) {
         taskHelper.pushTask(taskDetail);
-    }
-
-    function addTaskClickEvent() {
-        
     }
 
     init();
